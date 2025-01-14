@@ -1,0 +1,68 @@
+1)Write Java Program To Print "HELLO WORLD" Message?
+
+package com.demo;
+
+public class LAB1 
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println("Hello World!");
+		
+        }
+}
+
+output:
+
+Hello World!
+
+
+2)Write A Java Program To Demo About All Java Primitive Datatypes?
+
+package com.demo;
+
+public class LAB1 
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println("Hello World!");
+		
+		byte bytevalue =127;
+		System.out.println("Byte Value:" + bytevalue);
+		
+		double doublevalue =3.1423456789;
+		System.out.println("Double Value :" + doublevalue);
+		
+		long longvalue =987654321l;
+		System.out.println("Long Value :" + longvalue);
+		
+		float floatvalue =3.14f;
+		System.out.println("Float Value :" + floatvalue);
+		
+		char charvalue='A';
+		System.out.println("Char Value :" + charvalue);
+		
+		int intvalue =2;
+		System.out.println("Int Value :" + intvalue);
+		
+		boolean booleanvalue =true;
+		System.out.println("Boolean Value :" + booleanvalue);
+		
+		short shortvalue =32767;
+		System.out.println("Short Value:" + shortvalue);
+		
+	}
+
+}
+
+Output :
+
+Byte Value:127
+Double Value :3.1423456789
+Long Value :987654321
+Float Value :3.14
+Char Value :A
+Int Value :2
+Boolean Value :true
+Short Value:32767
