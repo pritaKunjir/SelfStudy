@@ -1,0 +1,101 @@
+LAB 3 :
+1. Write a program to demonstrate all primitive datatypes in Java?
+
+package com.demo;
+
+public class PrimitiveDataTypes {
+    public static void main(String[] args) {
+        // Byte
+        byte byteValue = 127;
+        System.out.println("Byte Value: " + byteValue);
+
+        // Short
+        short shortValue = 32767;
+        System.out.println("Short Value: " + shortValue);
+
+        // Int
+        int intValue = 2147483647;
+        System.out.println("Int Value: " + intValue);
+
+        // Long
+        long longValue = 9223372036854775807L;
+        System.out.println("Long Value: " + longValue);
+
+        // Float
+        float floatValue = 3.14159f;
+        System.out.println("Float Value: " + floatValue);
+
+        // Double
+        double doubleValue = 3.141592653589793;
+        System.out.println("Double Value: " + doubleValue);
+
+        // Char
+        char charValue = 'A';
+        System.out.println("Char Value: " + charValue);
+
+        // Boolean
+        boolean booleanValue = true;
+        System.out.println("Boolean Value: " + booleanValue);
+    }
+}
+
+Output :
+
+Byte Value: 127
+Short Value: 32767
+Int Value: 2147483647
+Long Value: 9223372036854775807
+Float Value: 3.14159
+Double Value: 3.141592653589793
+Char Value: A
+Boolean Value: true
+
+2.Write a program to input student marks of multiple subject..print total of marks , result depending on percentage?
+
+package com.demo;
+
+import java.util.Scanner;
+
+public class StudentMarks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of subjects: ");
+        int numSubjects = scanner.nextInt();
+
+        int totalMarks = 0;
+
+        for (int i = 0; i < numSubjects; i++) {
+            System.out.print("Enter subject " + (i + 1) + " marks: ");
+            totalMarks += scanner.nextInt();
+        }
+
+        double percentage = (double) totalMarks / numSubjects;
+
+        System.out.println("\nTotal Marks: " + totalMarks);
+        System.out.println("Percentage: " + percentage + "%");
+
+        if (percentage >= 90) System.out.println("Result: Distinction");
+        else if (percentage >= 75) System.out.println("Result: First Class");
+        else if (percentage >= 60) System.out.println("Result: Second Class");
+        else if (percentage >= 40) System.out.println("Result: Pass");
+        else System.out.println("Result: Fail");
+    }
+}
+
+Output :
+
+Enter number of subjects: 3
+Enter subject 1 marks: 50
+Enter subject 2 marks: 60
+Enter subject 3 marks: 70
+
+Total Marks: 180
+Percentage: 60.0%
+Result: Second Class
+
+
+
+
+
+
