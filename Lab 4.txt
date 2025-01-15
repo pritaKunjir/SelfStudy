@@ -1,0 +1,79 @@
+Lab 4:
+1.Write a program to demonstrate  use of type casting in java.
+  print result after type casting?
+
+package com.demo;
+
+public class TypeCasting {
+    public static void main(String[] args) {
+        // Widening Type Casting (automatic)
+        int intValue = 100;
+        double doubleValue = intValue;
+        System.out.println("Widening Type Casting: int to double = " + doubleValue);
+
+        // Narrowing Type Casting (manual)
+        double doubleValue2 = 100.99;
+        int intValue2 = (int) doubleValue2;
+        System.out.println("Narrowing Type Casting: double to int = " + intValue2);
+
+        // Widening Type Casting (automatic)
+        char charValue = 'A';
+        int intValue3 = charValue;
+        System.out.println("Widening Type Casting: char to int = " + intValue3);
+
+        // Narrowing Type Casting (manual)
+        int intValue4 = 65;
+        char charValue2 = (char) intValue4;
+        System.out.println("Narrowing Type Casting: int to char = " + charValue2);
+
+        // Widening Type Casting (automatic)
+        short shortValue = 100;
+        long longValue = shortValue;
+        System.out.println("Widening Type Casting: short to long = " + longValue);
+
+        // Narrowing Type Casting (manual)
+        long longValue2 = 100;
+        short shortValue2 = (short) longValue2;
+        System.out.println("Narrowing Type Casting: long to short = " + shortValue2);
+    }
+}
+
+Output :
+Widening Type Casting: int to double = 100.0
+Narrowing Type Casting: double to int = 100
+Widening Type Casting: char to int = 65
+Narrowing Type Casting: int to char = A
+Widening Type Casting: short to long = 100
+Narrowing Type Casting: long to short = 100
+
+
+2.2. Write a program to demonstrate use of local, instance and static variables in java?
+
+package com.demo;
+
+public class VariableTypes {
+    // Static variable
+    static int staticVar = 10;
+
+    // Instance variable
+    int instanceVar = 20;
+
+    public void myMethod() {
+        // Local variable
+        int localVar = 30;
+        System.out.println("Local Variable: " + localVar);
+        System.out.println("Instance Variable: " + instanceVar);
+        System.out.println("Static Variable: " + staticVar);
+    }
+
+    public static void main(String[] args) {
+        VariableTypes obj = new VariableTypes();
+        obj.myMethod();
+    }
+}
+
+Output :
+Local Variable: 30
+Instance Variable: 20
+Static Variable: 10
+
