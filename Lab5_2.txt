@@ -1,0 +1,144 @@
+Lab5
+2. 
+ Write a conventional Java class (Bean class) to demonstrate student  details.
+
+Additionally, 
+print student details 
+Calculate percentage of student with all subject marks.
+Print student result.
+
+
+Use multiple student for this example.
+
+
+package com.demo;
+
+public class Student {
+    private String name;
+    private int rollNumber;
+    private int englishMarks;
+    private int mathMarks;
+    private int scienceMarks;
+
+    // Constructor
+    public Student(String name, int rollNumber, int englishMarks, int mathMarks, int scienceMarks) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.englishMarks = englishMarks;
+        this.mathMarks = mathMarks;
+        this.scienceMarks = scienceMarks;
+    }
+
+    // Getters and Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    public void setRollNumber(int rollNumber) {
+        this.rollNumber = rollNumber;
+    }
+
+    public int getEnglishMarks() {
+        return englishMarks;
+    }
+
+    public void setEnglishMarks(int englishMarks) {
+        this.englishMarks = englishMarks;
+    }
+
+    public int getMathMarks() {
+        return mathMarks;
+    }
+
+    public void setMathMarks(int mathMarks) {
+        this.mathMarks = mathMarks;
+    }
+
+    public int getScienceMarks() {
+        return scienceMarks;
+    }
+
+    public void setScienceMarks(int scienceMarks) {
+        this.scienceMarks = scienceMarks;
+    }
+
+    // Method to calculate percentage
+    public double calculatePercentage() {
+        int totalMarks = englishMarks + mathMarks + scienceMarks;
+        return (totalMarks / 300.0) * 100;
+    }
+
+    // Method to print student result
+    public void printResult() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("English Marks: " + englishMarks);
+        System.out.println("Math Marks: " + mathMarks);
+        System.out.println("Science Marks: " + scienceMarks);
+        System.out.println("Percentage: " + calculatePercentage() + "%");
+        if (calculatePercentage() >= 40) {
+            System.out.println("Result: Pass");
+        } else {
+            System.out.println("Result: Fail");
+        }
+        System.out.println();
+    }
+}
+
+
+//Main
+
+package com.demo;
+
+public class StudentMain {
+    public static void main(String[] args) {
+        // Create multiple student objects
+        Student student1 = new Student("John Doe", 1, 80, 70, 90);
+        Student student2 = new Student("Jane Doe", 2, 90, 85, 95);
+        Student student3 = new Student("Bob Smith", 3, 60, 65, 70);
+
+        // Print student results
+        System.out.println("Student Results:");
+        student1.printResult();
+        student2.printResult();
+        student3.printResult();
+    }
+}
+
+
+Output :
+
+Student Results:
+Name: John Doe
+Roll Number: 1
+English Marks: 80
+Math Marks: 70
+Science Marks: 90
+Percentage: 80.0%
+Result: Pass
+
+Name: Jane Doe
+Roll Number: 2
+English Marks: 90
+Math Marks: 85
+Science Marks: 95
+Percentage: 90.0%
+Result: Pass
+
+Name: Bob Smith
+Roll Number: 3
+English Marks: 60
+Math Marks: 65
+Science Marks: 70
+Percentage: 65.0%
+Result: Pass
+
+
