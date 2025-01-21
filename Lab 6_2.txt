@@ -1,0 +1,42 @@
+Lab 6 :
+
+Q2.Write a program to print reverse of  entered number?
+
+package com.demo;
+import java.util.Scanner;
+
+public class ReverseNumber
+{
+
+	public static void main(String[] args) 
+	{
+		        Scanner scanner = new Scanner(System.in);
+
+		        System.out.print("Enter a number: ");
+		        int number = scanner.nextInt();
+
+		        scanner.close();
+
+		        int reverse = reverseNumber(number);
+
+		        System.out.println("Reverse of " + number + " is: " + reverse);
+		    }
+
+		    public static int reverseNumber(int number) {
+		        int reverse = 0;
+		        while (number != 0) {
+		            int remainder = number % 10;
+		            reverse = reverse * 10 + remainder;
+		            number /= 10;
+		        }
+		        return reverse;
+
+	}
+
+}
+
+
+Output:
+Enter a number: 1234566
+Reverse of 1234566 is: 6654321
+
