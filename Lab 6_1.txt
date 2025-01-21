@@ -1,0 +1,40 @@
+Lab 6:
+Write a program to check whether entered year is leap or not?
+
+package com.demo;
+
+import java.util.Scanner;
+
+public class LeapYear {
+
+	public static void main(String[] args)
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a Year :");
+		int year = scanner.nextInt();
+		scanner.close();
+		
+		if(isLeapYear(year)) 
+		{
+			System.out.println(year+"is a leap year.");
+		}
+		else
+		{
+			System.out.println(year+"is not a leap year.");
+		}
+
+	}
+	public static boolean isLeapYear(int year)
+	{
+		return (year % 4 == 0 && year % 100 != 0)||(year % 400 == 0);
+		
+		
+	}
+
+}
+
+Output :
+
+Enter a Year :
+2027
+2027is not a leap year
