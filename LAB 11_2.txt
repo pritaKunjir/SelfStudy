@@ -1,0 +1,128 @@
+LAB 11 :
+2.  Write a program to calculate area of Rectangle, Square, Circle and Triangle using inheritance
+
+ANS :
+
+import java.util.Scanner;
+
+// Base class: Shape
+class Shape {
+    public double area() {
+        return 0;
+    }
+}
+
+// Rectangle class inherits from Shape
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double area() {
+        return length * width;
+    }
+}
+
+// Square class inherits from Rectangle
+class Square extends Rectangle {
+    public Square(double side) {
+        super(side, side);
+    }
+}
+
+// Circle class inherits from Shape
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Triangle class inherits from Shape
+class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double area() {
+        return 0.5 * base * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose a shape:");
+        System.out.println("1. Rectangle");
+        System.out.println("2. Square");
+        System.out.println("3. Circle");
+        System.out.println("4. Triangle");
+
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter rectangle length: ");
+                double length = scanner.nextDouble();
+                System.out.print("Enter rectangle width: ");
+                double width = scanner.nextDouble();
+                Shape rectangle = new Rectangle(length, width);
+                System.out.println("Rectangle area: " + rectangle.area());
+                break;
+            case 2:
+                System.out.print("Enter square side: ");
+                double side = scanner.nextDouble();
+                Shape square = new Square(side);
+                System.out.println("Square area: " + square.area());
+                break;
+            case 3:
+                System.out.print("Enter circle radius: ");
+                double radius = scanner.nextDouble();
+                Shape circle = new Circle(radius);
+                System.out.println("Circle area: " + circle.area());
+                break;
+            case 4:
+                System.out.print("Enter triangle base: ");
+                double base = scanner.nextDouble();
+                System.out.print("Enter triangle height: ");
+                double height = scanner.nextDouble();
+                Shape triangle = new Triangle(base, height);
+                System.out.println("Triangle area: " + triangle.area());
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+}
+
+
+Output:
+
+
+Choose a shape:
+1. Rectangle
+2. Square
+3. Circle
+4. Triangle
+1
+Enter rectangle length: 5
+Enter rectangle width: 3
+Rectangle area: 15.0
+
