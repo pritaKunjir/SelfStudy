@@ -1,0 +1,32 @@
+LAB 11 :
+
+1. Write a program which calculates the monthly bill amount for Electricity bill
+
+ANS:
+
+import java.util.Scanner;
+
+class ElectricityBillCalculator {
+    private static final double RATE_PER_UNIT = 3.50; // Rate per unit in dollars
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of units consumed: ");
+        double unitsConsumed = scanner.nextDouble();
+
+        double billAmount = calculateBill(unitsConsumed);
+        System.out.printf("Monthly electricity bill: $%.2f%n", billAmount);
+    }
+
+    private static double calculateBill(double unitsConsumed) {
+        return unitsConsumed * RATE_PER_UNIT;
+    }
+}
+
+
+Output:
+
+
+Enter the number of units consumed: 500
+Monthly electricity bill: $1750.00
