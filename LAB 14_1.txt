@@ -1,0 +1,46 @@
+LAB 14_1:
+
+Q1. Write a class with multiple area methods.
+
+Implement compile time polymorphism using method overloading.
+
+ANS :
+
+   public class ShapeArea {
+
+    // Method to calculate area of a circle
+    public double area(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to calculate area of a rectangle
+    public double area(double length, double width) {
+        return length * width;
+    }
+
+    // Method to calculate area of a square
+    public double area(int side) {
+        return side * side;
+    }
+
+    // Method to calculate area of a triangle
+    public double area(double base, double height) {
+        return 0.5 * base * height;
+    }
+
+    public static void main(String[] args) {
+        ShapeArea shapeArea = new ShapeArea();
+
+        System.out.println("Area of a circle: " + shapeArea.area(5.0));
+        System.out.println("Area of a rectangle: " + shapeArea.area(4.0, 6.0));
+        System.out.println("Area of a square: " + shapeArea.area(4));
+        System.out.println("Area of a triangle: " + shapeArea.area(3.0, 7.0));
+    }
+}
+OUTPUT :
+
+Area of a circle: 78.53981633974483
+Area of a rectangle: 24.0
+Area of a square: 16
+Area of a triangle: 10.5
+
