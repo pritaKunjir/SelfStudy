@@ -1,0 +1,68 @@
+LAB :13_2
+
+2. Write a class with its child class
+
+Implement run time polymorphism using method overriding.
+
+ANS :
+// Parent class: Animal
+class Animal {
+    void sound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+// Child class: Dog
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("The dog barks");
+    }
+}
+
+// Child class: Cat
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("The cat meows");
+    }
+}
+
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        // Create objects
+        Animal animal = new Animal();
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+
+        // Method overriding example
+        System.out.println("Method Overriding Example:");
+        animal.sound();
+        dog.sound();
+        cat.sound();
+
+        // Runtime polymorphism example
+        System.out.println("\nRuntime Polymorphism Example:");
+        Animal polymorphicAnimal = new Animal();
+        polymorphicAnimal.sound();
+
+        polymorphicAnimal = new Dog();
+        polymorphicAnimal.sound();
+
+        polymorphicAnimal = new Cat();
+        polymorphicAnimal.sound();
+    }
+}
+
+
+
+OUTPUT :
+Method Overriding Example:
+The animal makes a sound
+The dog barks
+The cat meows
+
+Runtime Polymorphism Example:
+The animal makes a sound
+The dog barks
+The cat meows
