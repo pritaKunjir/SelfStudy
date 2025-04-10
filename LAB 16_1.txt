@@ -1,0 +1,106 @@
+LAB :16
+Q1.1. create a banking application to deposit and withdraw money.
+use super keyword in created classes.
+
+
+ans:
+Account.java (Parent Class)
+
+public class Account {
+    protected double balance;
+
+    public Account(double balance) {
+        this.balance = balance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+}
+
+
+SavingsAccount.java (Child Class)
+
+public class SavingsAccount extends Account {
+    private double interestRate;
+
+    public SavingsAccount(double balance, double interestRate) {
+        super(balance); // Calls Account constructor
+        this.interestRate = interestRate;
+    }
+
+    public void addInterest() {
+        double interest = getBalance() * interestRate / 100;
+        deposit(interest);
+        System.out.println("Interest added: " + interest);
+    }
+}
+
+
+CheckingAccount.java (Child Class)
+
+public class CheckingAccount extends Account {
+    private double overdraftLimit;
+
+    public CheckingAccount(double balance, double overdraftLimit) {
+        super(balance); // Calls Account constructor
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (getBalance() + overdraftLimit >= amount) {
+            super.withdraw(amount); // Calls Account withdraw method
+        } else {
+            System.out.println("Transaction declined. Insufficient funds.");
+        }
+    }
+}
+
+
+BankingApplication.java
+
+public class BankingApplication {
+    public static void main(String[] args) {
+        // Create savings account
+        SavingsAccount savingsAccount = new SavingsAccount(1000, 5);
+        System.out.println("Savings Account Balance: " + savingsAccount.getBalance());
+        savingsAccount.deposit(500);
+        System.out.println("Savings Account Balance: " + savingsAccount.getBalance());
+        savingsAccount.addInterest();
+
+        // Create checking account
+        CheckingAccount checkingAccount = new CheckingAccount(500, 1000);
+        System.out.println("Checking Account Balance: " + checkingAccount.getBalance());
+        checkingAccount.withdraw(200);
+        System.out.println("Checking Account Balance: " + checkingAccount.getBalance());
+        checkingAccount.withdraw(1500);
+    }
+}
+
+
+Output:
+
+Savings Account Balance: 1000.0
+Deposited: 500.0
+Savings Account Balance: 1500.0
+Interest added: 75.0
+Checking Account Balance: 500.0
+Withdrawn: 200.0
+Checking Account Balance: 300.0
+Transaction declined. Insufficient funds.
+
