@@ -1,0 +1,74 @@
+LAB 12:
+
+1.Create an interface called "BankAccount" with methods called "deposit" and "withdraw". Create a class called "CheckingAccount" that implements the BankAccount interface and implements the "deposit" and "withdraw" methods. Create an object of the CheckingAccount class and call both the "deposit" and "withdraw" methods.
+
+Ans:
+
+// Define the BankAccount interface
+interface BankAccount {
+    void deposit(double amount);
+    void withdraw(double amount);
+}
+
+// Create the CheckingAccount class that implements BankAccount
+class CheckingAccount implements BankAccount {
+    private double balance;
+    private int accountNumber;
+
+    public CheckingAccount(int accountNumber) {
+        this.accountNumber = accountNumber;
+        this.balance = 0.0;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Deposited: $" + amount);
+        System.out.println("Current Balance: $" + balance);
+        System.out.println();
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Account Number: " + accountNumber);
+            System.out.println("Withdrawn: $" + amount);
+            System.out.println("Current Balance: $" + balance);
+            System.out.println();
+        } else {
+            System.out.println("Account Number: " + accountNumber);
+            System.out.println("Insufficient funds.");
+            System.out.println();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a CheckingAccount object
+        CheckingAccount account = new CheckingAccount(12345);
+
+        // Call the deposit and withdraw methods
+        account.deposit(1000.0);
+        account.withdraw(500.0);
+        account.withdraw(600.0);
+    }
+}
+
+
+Output:
+
+
+Account Number: 12345
+Deposited: $1000.0
+Current Balance: $1000.0
+
+Account Number: 12345
+Withdrawn: $500.0
+Current Balance: $500.0
+
+Account Number: 12345
+Insufficient funds.
+
