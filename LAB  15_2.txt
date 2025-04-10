@@ -1,0 +1,106 @@
+LAB : 15_2
+
+Q2.create and abstract class and implement abstract methods to print student details.
+
+ANS:
+Student.java (Abstract Class)
+
+public abstract class Student {
+    protected String name;
+    protected int age;
+    protected String rollNumber;
+
+    public Student(String name, int age, String rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    public abstract void printDetails();
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getRollNumber() {
+        return rollNumber;
+    }
+}
+
+
+UndergraduateStudent.java (Concrete Class)
+
+public class UndergraduateStudent extends Student {
+    private String program;
+
+    public UndergraduateStudent(String name, int age, String rollNumber, String program) {
+        super(name, age, rollNumber);
+        this.program = program;
+    }
+
+    @Override
+    public void printDetails() {
+        System.out.println("Undergraduate Student Details:");
+        System.out.println("Name: " + getName());
+        System.out.println("Age: " + getAge());
+        System.out.println("Roll Number: " + getRollNumber());
+        System.out.println("Program: " + program);
+    }
+}
+
+
+PostgraduateStudent.java (Concrete Class)
+
+public class PostgraduateStudent extends Student {
+    private String researchArea;
+
+    public PostgraduateStudent(String name, int age, String rollNumber, String researchArea) {
+        super(name, age, rollNumber);
+        this.researchArea = researchArea;
+    }
+
+    @Override
+    public void printDetails() {
+        System.out.println("Postgraduate Student Details:");
+        System.out.println("Name: " + getName());
+        System.out.println("Age: " + getAge());
+        System.out.println("Roll Number: " + getRollNumber());
+        System.out.println("Research Area: " + researchArea);
+    }
+}
+
+
+StudentDetails.java
+
+public class StudentDetails {
+    public static void main(String[] args) {
+        // Create undergraduate student object
+        UndergraduateStudent undergraduateStudent = new UndergraduateStudent("John Doe", 20, "UG1234", "Computer Science");
+        undergraduateStudent.printDetails();
+
+        System.out.println();
+
+        // Create postgraduate student object
+        PostgraduateStudent postgraduateStudent = new PostgraduateStudent("Jane Doe", 25, "PG5678", "Artificial Intelligence");
+        postgraduateStudent.printDetails();
+    }
+}
+
+
+Output:
+
+Undergraduate Student Details:
+Name: John Doe
+Age: 20
+Roll Number: UG1234
+Program: Computer Science
+
+Postgraduate Student Details:
+Name: Jane Doe
+Age: 25
+Roll Number: PG5678
+Research Area: Artificial Intelligence
